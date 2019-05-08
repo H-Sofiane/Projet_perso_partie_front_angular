@@ -1,0 +1,20 @@
+<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th>#</th>
+						<th>title</th>
+						<th>body</th>					
+						<th></th>
+					</tr>
+				</thead>
+				<tbody >
+					<tr *ngFor="let abcd of abcds | paginate: {itemsPerPage: 5, currentPage: pageActuelle}">
+						<th scope="row">{{abcd.id}}</th>
+						<td>{{abcd.title}}</td>
+						<td>{{abcd.body}}</td>					
+					</tr>
+				</tbody>
+				<div class="container">
+			</div>
+			</table>
+			<pagination-controls (pageChange)="pageActuelle = $event"></pagination-controls>

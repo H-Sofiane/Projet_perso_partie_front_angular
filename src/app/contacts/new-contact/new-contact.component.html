@@ -1,0 +1,49 @@
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<section>
+				<form novalidate [formGroup]="contactForm" (ngSubmit)="onSaveContact()">
+					<fieldset>
+						<div class="form-group">
+							<label>Nom</label>
+							<input type="text" class="form-control" formControlName="nom"/>
+						</div>
+
+						<div class="form-group">
+							<label>Prénom</label>
+							<input type="text" class="form-control" formControlName="prenom"/>
+						</div>
+
+					</fieldset>
+
+						<div class="form-group">
+							<label>Date de Naissance</label>
+							<input type="date" class="form-control" formControlName="dateNaissance"/>
+						</div>
+
+ 						<div class="form-group">
+							<label>Mail</label>
+							<input type="text" class="form-control" formControlName="email"/>
+						</div>
+
+						<div class="form-group">
+							<label>Téléphone</label>
+							<input type="text" class="form-control" formControlName="tel"/>
+						</div>
+
+						<div class="form-group">
+							<label>Photo</label>
+							<input type="file" (change)="onFileSelected($event)" class="form-control" formControlName="photo"/>
+							<!-- <input type="text" class="form-control" formControlName="photo"/> -->
+						</div>
+
+						<button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">Submit</button>
+
+						<!-- <button type="button" class="btn btn-warning" (click)="redirectUtilisateurPage()">Quitter</button> -->
+						<pre>{{ contactForm.value | json }}</pre>
+					
+				</form>
+			</section>
+		</div>
+	</div>
+</div>

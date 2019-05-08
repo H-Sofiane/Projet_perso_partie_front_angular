@@ -1,0 +1,22 @@
+<div *ngFor="let match of matchs" class="card mb-3 shadow p-3" style="margin: 2em;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img [src]="match.thumbnail" class="card-img" alt="..." style="margin-top: 1.5em;">
+      <h2 class="card-title">{{match.title}}</h2>
+        <h6 class="card-text">{{match.competition.name}}</h6>
+        <button type="button" class="btn btn-primary">
+        <!-- <span class="badge badge-primary"> --><a class="text-white" [href]="match.url" target="_blank" style="text-decoration: none; "><p class="card-text">Live et détails du match</p></a><!-- </span> -->
+    	</button>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <!-- <p class="card-text">{{match.videos[0].embed}}</p> -->
+        <!-- <video [src]="match.url" controls width="600" class="shadow-lg">
+		</video> -->
+		<div class="e2e-inner-html-bound" [innerHTML]="match.videos[0].embed | safe: 'html'"></div>
+		
+		<div class="test"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="card">
+	  <h5 class="card-header">{{outputLabel}} | {{confidence}}</h5>
+	  <div class="card-body">
+	    <video #video width="320" height="240" autoplay class="img-thumbnail"></video>
+	    <canvas #capture width="320" height="240" class="img-thumbnail"></canvas>
+	  </div>
+	</div>
+	<div class="card">
+	  <!-- <h5 class="card-header">Featured</h5> -->
+	  <div class="card-body">
+	    <label>Label:</label>
+        <input type="text" [(ngModel)]="imageLabel">
+        <button (click)="addImage()" >Add Image</button>
+        <button (click)="trainModel()" >Train</button>
+	  </div>
+	</div>
+	<div class="card">
+	  <!-- <h5 class="card-header">Featured</h5> -->
+	  <div class="card-body">
+	    <label>{{currentLoss|number:'0.8'}}</label>
+      	<progress-bar [progress]="currentProgress" [color]="'#00cbcb'"></progress-bar>
+	  </div>
+	</div>
+	<div class="card">
+	  <!-- <h5 class="card-header">Featured</h5> -->
+	  <div class="card-body">
+	    <ul class="nav nav-pills">
+        <li *ngFor="let im of captures">
+          <img src="{{im}}" width="50">
+        </li>
+      </ul>
+	  </div>
+	</div>
+</div>

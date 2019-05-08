@@ -1,0 +1,50 @@
+<div *ngIf="isAuthenticated()">
+<!-- <p>{{infos.photo}}</p> -->
+<div class="bg-primary" style="box-shadow: 2px 4px 8px black;">
+<div class="container" style="display: flex; justify-content: center; padding-top: 1em; padding-bottom: 1em;">
+	<!-- <div class="card" style="width: 18rem;">
+  <img [src]="infos.photo" class="card-img-top" alt="..."/>
+  <div class="card-body">
+    <p class="card-text">{{infos.nom}}</p>
+	<p class="card-text">{{infos.prenom}}</p>
+	<p class="card-text">{{infos.dateNaissance}}</p>
+	<p class="card-text">{{infos.email}}</p>
+	<p class="card-text">{{infos.tel}}</p>
+  </div>
+</div> -->
+
+
+	<img [src]="infos.photo" class="img-thumbnail rounded-circle img-fluid" style="box-shadow: 2px 4px 8px black;" alt="..."/>
+
+
+</div>
+</div>
+<div style="display: flex; justify-content: center; margin-top: 2em;">
+	<div style="text-align: center;" class="col-md-3">
+		<h2>{{infos.nom}}</h2>
+		<h2>{{infos.prenom}}</h2>
+		<h5>{{infos.dateNaissance | date :'dd/MM/yyyy'}}</h5>
+		<h5>{{infos.email}}</h5>
+		<h5>{{infos.tel}}</h5>
+		<h5>{{offres.PointCap}}</h5>
+		<h5>{{offres.WestPlayer1}}</h5>
+	</div>
+
+	<!-- <div class="card mb-3" style="max-width: 18rem; text-align: center; box-shadow: 2px 4px 8px black;">
+  <div class="card-header">
+  	<h2>{{infos.nom}}</h2>
+	<h2>{{infos.prenom}}</h2>
+  </div>
+  <div class="card-body">
+    <h5>{{infos.dateNaissance | date :'dd/MM/yyyy'}}</h5>
+	<h5>{{infos.email}}</h5>
+	<h5>{{infos.tel}}</h5>
+  </div>
+</div> -->
+</div>
+
+<!-- {{angularLogo}}
+ <img src="{{ angularLogo }}">
+  <img [src]="angularLogo">
+  <img bind-src="angularLogo"> -->
+</div>

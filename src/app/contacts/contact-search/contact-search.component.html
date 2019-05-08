@@ -1,0 +1,14 @@
+<div id="search-component">
+  <h4>Contact Search</h4>
+ 
+  <input #searchBox id="search-box" (input)="chercher()" />
+  <button class="btn btn-primary" (click)="chercher()">Chercher</button>
+ 
+  <ul class="search-result">
+    <li *ngFor="let contact of contacts$ | async" >
+     
+        <!-- <p>{{contact.nom}}</p> -->
+      
+    </li>
+  </ul>
+</div>

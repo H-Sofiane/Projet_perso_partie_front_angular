@@ -1,0 +1,70 @@
+<div class="container" *ngIf="isAuthenticated()">
+<!-- 	<div class="card">
+  <h5 class="card-header">List of contacts</h5>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> -->
+
+
+
+<section class="main">
+			<div class="form-group">
+				<label>Mot Clé:</label>
+				<input type="text" [(ngModel)]="motCle" #filterInput="ngModel">
+				<!-- <input #searchBox id="search-box" [(ngModel)]="motCle" (input)="chercher(searchBox.value)" /> -->
+				<button class="btn btn-primary" (click)="chercher()" >Chercher</button>
+			</div>
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th>#</th>
+						<th>Nom</th>
+						<th>Prénom</th>
+						<th>Date de Naissance</th>
+						<th>Mail</th>
+						<th>Téléphone</th>
+						<th>Photo</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody *ngIf="contacts">
+					<tr *ngFor="let contact of contacts | paginate: {itemsPerPage: 5, currentPage: pageActuelle}">
+						<th scope="row">{{contact.id}}</th>
+						<td>{{contact.nom}}</td>
+						<td>{{contact.prenom}}</td>
+						<td>{{contact.dateNaissance | date :'dd/MM/yyyy'}}</td>
+						<td>{{contact.email}}</td>
+						<td>{{contact.tel}}</td>
+						<td>{{contact.photo}}</td>
+						<td>
+							<button type="button" class="btn btn-primary" (click)="afficherContactPage(contact)" >Afficher</button>
+							<button type="button" class="btn btn-success" (click)="editContactPage(contact)" *ngIf="isAdmin()" >Editer</button>
+							<button type="button" class="btn btn-danger" (click)="deleteContact(contact)" *ngIf="isAdmin()">Supprimer</button>
+						</td>
+					</tr>
+				</tbody>
+				<div class="container">
+				<!-- <ul class="nav nav-pills">
+					<li *ngFor="let p of pages; let i of index">
+						<a>{{i}}</a>
+					</li>
+				</ul> -->
+			</div>
+			</table>
+			<pagination-controls (pageChange)="pageActuelle = $event"></pagination-controls>
+		</section>
+
+		<div class="form-group">
+				<label>Offre d'emplois:</label>
+				<input type="text" [(ngModel)]="libelle" #filterInput="ngModel">
+				<!-- <input #searchBox id="search-box" [(ngModel)]="motCle" (input)="chercher(searchBox.value)" /> -->
+				<button class="btn btn-primary" (click)="getTestUrl()" >Chercher</button>
+			</div>
+
+
+		<!-- <app-contact-search></app-contact-search> -->
+</div>
+

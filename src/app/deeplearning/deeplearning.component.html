@@ -1,0 +1,70 @@
+<div class="container">
+
+	<ul class="nav justify-content-center">
+		<!-- Les fonctions suivantes sont des notions à comprendre 
+			pour pouvoir faire du machine et deep learning -->
+		<!-- Bouton de multiplication de 2 matrices -->
+  <li class="nav-item">
+    <button class="btn btn-outline-success bg-dark shadow p-3 mb-5" (click)="onMult()">X Mul Y</button>
+  </li>
+  <li class="nav-item">
+    <button class="btn btn-outline-success bg-dark shadow p-3 mb-5" (click)="onTranspose()">Transpose X</button>
+  </li>
+  <li class="nav-item">
+    <button class="btn btn-outline-success bg-dark shadow p-3 mb-5" (click)="onSigmoid()">Sigmoid X</button>
+  </li>
+  <!-- ReLU => Rectified Linear Units -->
+  <li class="nav-item">
+    <button class="btn btn-outline-success bg-dark shadow p-3 mb-5" (click)="onRELU(X)">RELU X</button>
+  </li>
+</ul>
+
+
+	<div class="row">
+		<div *ngFor="let t of tensors|keyvalue">	
+							
+				<div class="card">
+			  		<div class="card-header bg-primary text-white">
+			    		Tensor {{t.key}}
+			  		</div>
+			  		<div class="card-body">
+			    		<table class="table">
+			    			<!-- Quand on créé un tensor, les données du tensor sont stockées dans le GPU,
+								 dataSync permet d'aller chercher les données dans la mémoire du GPU
+								 data => récupérer les données, 
+								 arraySync => j'attend que toutes les données soient chargées pour les récupérer ("méthode synchrone") -->
+			    			<tr *ngFor="let line of t.value.arraySync()">
+			    				<td *ngFor="let v of line">{{v|number:'0.4'}}</td>
+			    			</tr>
+			    		</table>
+			  		</div>
+				</div>
+				
+		</div>
+	</div>	
+</div>
+
+<div class="container" style="margin-top: 2em;">
+	<ul class="nav justify-content-center">
+	  <li class="nav-item">
+	    <button type="button" class="btn btn-outline-primary bg-dark shadow p-3 mb-5" (click)="onCreateModel()">Create Model</button>
+	  </li>
+	  <!-- <li class="nav-item">
+	    <button type="button" class="btn btn-outline-primary bg-dark shadow p-3 mb-5">Dark</button>
+	  </li>
+	  <li class="nav-item">
+	    <button type="button" class="btn btn-outline-primary bg-dark shadow p-3 mb-5">Dark</button>
+	  </li>
+	  <li class="nav-item">
+	    <button type="button" class="btn btn-outline-primary bg-dark shadow p-3 mb-5">Dark</button>
+	  </li> -->
+	</ul>
+	<div class="card">
+	  <h5 class="card-header bg-primary text-white">Model</h5>
+	  <div class="card-body d-flex justify-content-center">	    
+	    	<img src="assets/images/model.png" *ngIf="modelCreated">
+	  </div>
+	</div>
+</div>
+
+

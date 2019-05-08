@@ -1,0 +1,22 @@
+<div class="bg-primary text-white shadow p-3 col-md-6" *ngFor="let message of messages" style="display: flex; flex-wrap: nowrap; margin: 1em;">
+
+<div style="margin-right: 2em; width: 60px;">
+     <img src="https://gal.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fgal.2Fvar.2Fgal.2Fstorage.2Fimages.2Fmedia.2Fmultiupload_du_06_juillet_2017.2Fronaldo.2F4115603-1-fre-FR.2Fronaldo.2Ejpg/100x100/quality/80/photo-cristiano-ronaldo-papa-poule-avec-son-fils-et-les-jumeaux.jpg" class=" rounded-circle img-fluid" style="box-shadow: 2px 4px 8px black;" alt="..."/>
+</div>
+<div class="col-md-9" style="text-align: center; margin-top: 0.5em;">
+    <h5>{{message.text}}</h5>
+    <p>{{infos.username}}</p>
+    <p>{{infos.photo}}</p>
+</div>
+ 
+</div>
+
+
+
+
+<div class="input-group col-md-6">
+  <input type="text" class="form-control" [(ngModel)]="messageText">
+  <div class="input-group-append">
+    <button class="btn btn-dark text-primary" (click)="sendMessage()">Send</button>
+  </div>
+</div>
